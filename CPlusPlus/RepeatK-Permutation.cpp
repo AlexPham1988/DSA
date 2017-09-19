@@ -28,12 +28,28 @@ void nextString(){
 		}
 	}
 }
+
+void print_str(string str,string prefix, const int lenght){
+	int n = str.length();
+	if (lenght == 1){
+		for (int j = 0; j < n; j++)
+		cout << prefix + str[j] << std::endl;
+	}else{
+		for (int i = 0; i < n; i++)
+        	print_str(str, prefix + str[i], lenght - 1);
+	}
+}
+
+
 int main(){
-	for (int i = 1; i <= k; i++){
-		a[i] = 1;
-	}
-	while (!check){
-		display();
-		nextString();
-	}
+	#for (int i = 1; i <= k; i++){
+	#	a[i] = 1;
+	#}
+	#while (!check){
+	#	display();
+	#	nextString();
+	#}
+	int lenght = 2;
+	string str = "ABC";
+	print_str(str, "", lenght);
 }
