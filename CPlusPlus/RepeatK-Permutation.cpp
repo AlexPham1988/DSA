@@ -41,6 +41,23 @@ void print_str(string str,string prefix, const int lenght){
 }
 
 
+void RepeatCombination(string s,string out, int n){
+	if(n == 0){
+		cout << out << endl;
+		return;
+	}
+//	if(out.empty() && n > 1)
+//		RepeatCombination(s,out,n-1);
+//	Small n go first, RepeatCombination(s,out,1) - > RepeatCombination(s,out,2) -> RepeatCombination(s,out,3)
+	
+	for (int i = 0; i < s.length(); i++)
+		RepeatCombination(s,out + s[i],n-1);
+	
+//	Big n go first, RepeatCombination(s,out,3) - > RepeatCombination(s,out,2) -> RepeatCombination(s,out,1)	
+	if(out.empty() && n > 1)
+		RepeatCombination(s,out,n-1);
+}
+
 int main(){
 	#for (int i = 1; i <= k; i++){
 	#	a[i] = 1;
@@ -49,7 +66,8 @@ int main(){
 	#	display();
 	#	nextString();
 	#}
-	int lenght = 2;
+	int n = 2;
 	string str = "ABC";
-	print_str(str, "", lenght);
+//	print_str(str, "", n);
+	RepeatCombination(str,"",n);
 }
