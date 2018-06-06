@@ -25,7 +25,7 @@ def displayMatrix( mat ):
         print ("")
      
 
-def rorate1(matrix):
+def rorateClockWise(matrix):
     for layer in range(N/2):
         last = N - 1 - layer
         for i in range(layer,last):
@@ -43,7 +43,7 @@ def rorate1(matrix):
     return matrix
 
 
-def rorate2(matrix): 
+def rorateCounterClockWise(matrix): 
     for layer in range(0, int(N/2)):
         last = N - 1 - layer
         for i in range(layer, last):
@@ -62,7 +62,6 @@ def rorate2(matrix):
 
 
 displayMatrix(matrix)
-# matrix1 = rorate1(matrix)
 print '*'*10
-matrix = rorate1(matrix)
+matrix = rorateClockWise(matrix)
 displayMatrix(matrix)
